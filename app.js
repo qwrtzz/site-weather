@@ -1,27 +1,34 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const apiKey = 'fc4dec25ee9f5fee7ddfde665b8a7577'; // API ключ от OpenWeatherMap
-    const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Moscow&appid=' + apiKey;
+function getWeather() {
+    var city = document.getElementById("cityInput").value;
+    var apiKey = '7e95f47ce3653c8160d2a14b870a7471'; 
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + encodeURIComponent(city) + "&appid=" + apiKey + "&lang=ru&units=metric";
 
-    const weatherCard = document.getElementById('weatherCard');
+    var weatherCard = document.getElementById('weatherCard');
+    weatherCard.innerHTML = '<h2>Загрузка...</h2>'; // Показать сообщение о загрузке
 
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            const city = data.name;
-            const weather = data.weather[0].description;
-            const tempCelsius = Math.round(data.main.temp - 273.15);
-            const humidity = data.main.humidity;
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        if (data.cod !== 200) {
+            throw new Error(data.message);
+        }
 
-            const weatherInfo = `
-                <h2>${city}</h2>
-                <p>Weather: ${weather}</p>
-                <p>Temperature: ${tempCelsius}°C</p>
-                <p>Humidity: ${humidity}%</p>
-            `;
-            weatherCard.innerHTML = weatherInfo;
-        })
-        .catch(error => {
-            console.log('Error fetching weather data:', error);
-            weatherCard.innerHTML = '<h2>Error fetching weather data</h2>';
-        });
-});
+        var cityName = data.name; 
+        var weather = data.weather[0].description;
+        var tempCelsius = Math.round(data.main.temp);
+        var humidity = data.main.humidity;
+
+        var weatherInfo = `
+            <h2>Погода в ${cityName}</h2>
+            <p>Погодные условия: ${weather}</p>
+            <p>Температура: ${tempCelsius}°C</p>
+            <p>Влажность: ${humidity}%</p>
+            <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="Погодные условия">
+        `;
+        weatherCard.innerHTML = weatherInfo;
+    })
+    .catch(error => {
+        console.log("Ошибка при получении данных о погоде:", error);
+        weatherCard.innerHTML = "<h2>Не удалось получить данные о погоде. Попробуйте ещё раз.</h2>";
+    });
+}
