@@ -19,7 +19,7 @@ function getWeather() {
         var humidity = data.main.humidity;
 
         var weatherInfo = `
-            <h2>Погода в ${cityName}</h2>
+            <h2>${cityName}</h2>
             <p>Погодные условия: ${weather}</p>
             <p>Температура: ${tempCelsius}°C</p>
             <p>Влажность: ${humidity}%</p>
