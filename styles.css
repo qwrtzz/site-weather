@@ -7,14 +7,14 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-   background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1612726654_192-p-krasivie-golubie-foni-neba-251.png);
+   background-image: url(https://i.pinimg.com/originals/15/13/ba/1513ba1e9699fd14f7266308b11f9031.jpg);
 }
 .container {
     text-align: center;
 }
 
 .weather-card {
-    background-color: #fff;
+    background-color: #ccc;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);

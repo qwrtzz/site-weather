@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Прогноз погоды</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     
     <div class="container">
-        <h1>Weather App</h1>
+        <h1>Прогноз погоды </h1>
         <div>
             <input type="text" id="cityInput" placeholder="Введите город">
             <button onclick="getWeather()">Узнать погоду</button>
+            <button onclick="getWeatherForThreeDays()">Погода на три дня</button> <!-- Добавляем кнопку для вызова прогноза на три дня -->
         </div>
         <div class="weather-card" id="weatherCard">
             <h2>Введите название города и нажмите кнопку</h2>
@@ -20,7 +21,7 @@
         <div class="contacts"> <!-- Добавляем блок для контактов -->
             <h2>Контакты</h2>
             <p>Номер телефона: +7 (915) 333-46-18</p>
-            <p>Почта: weatherapp@gmail.com</p>
+            <p>Почта: weathersite@gmail.com</p>
         </div>
     </div>
 
