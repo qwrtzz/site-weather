@@ -9,18 +9,18 @@
 <body>
     
     <div class="container">
-        <h1>Прогноз погоды </h1>
+            <h1>Прогноз погоды</h1>
         <div>
             <input type="text" id="cityInput" placeholder="Введите город">
-            <button onclick="getWeather()">Узнать погоду</button>
-            <button onclick="getWeatherForThreeDays()">Погода на три дня</button> <!-- Добавляем кнопку для вызова прогноза на три дня -->
+            <button id="weatherButton" onclick="getWeather()">Узнать погоду</button>
+            <button id="forecastButton" onclick="getWeatherForThreeDays()">Погода на три дня</button>
         </div>
         <div class="weather-card" id="weatherCard">
-            <h2>Введите название города и нажмите кнопку</h2>
+            <h2>Введите название города</h2>
         </div>
-        <div class="contacts"> <!-- Добавляем блок для контактов -->
+        <div class="contacts">
             <h2>Контакты</h2>
-            <p>Номер телефона: +7 (915) 333-46-18</p>
+            <p>Поддержка: +7 (915) 333-46-18</p>
             <p>Почта: weathersite@gmail.com</p>
         </div>
     </div>
